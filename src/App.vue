@@ -15,7 +15,7 @@
             </div>
             <div v-else>
                 <div v-if="networks[networkId]">
-                    <p>You are connected to {{networks[networkId].name}} network</p>
+                    <p>You are connected to {{networks[networkId].name}} network.</p>
                     <p v-if="txHash !== ''">
                         1,000 tokens transfer to your address. <a :href="networks[networkId].explorer + '/tx/' + txHash"
                                                                   target="_blank">Transaction detail</a>
@@ -28,6 +28,8 @@
                             @click="faucet"
                             class="btn btn-lg btn-primary btn-block btn-request">Request faucet
                     </button>
+                    <p v-if="networks[networkId].faucet !== ''" class="mt-4">
+                        Go to <a :href="networks[networkId].faucet" target="_blank">Faucet</a> to get {{networks[networkId].token}} testnet </p>
                 </div>
                 <div v-else>
                     This network is currently not supported
@@ -67,42 +69,56 @@
                         contract: '0x77d77774fc52577a1111d90adf29f6a7cd62e70f',
                         name: 'Kovan',
                         rpc: '',
+                        faucet: 'https://faucet.kovan.network/',
+                        token: 'ETH',
                         explorer: 'https://kovan.etherscan.io'
                     },
                     89: {
                         contract: '0x0bb20dc9D6fEE2E8bd291842EFf7f34AbdcEE451',
                         name: 'TomoChain testnet',
                         rpc: 'https://rpc.testnet.tomochain.com',
+                        faucet: 'https://faucet.testnet.tomochain.com/',
+                        token: 'TOMO',
                         explorer: 'https://scan.testnet.tomochain.com'
                     },
                     97: {
                         contract: '0xF18efcc1e406385B646d1b0dc507cC893B3eD489',
                         name: 'BSC testnet',
                         rpc: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+                        faucet: 'https://testnet.binance.org/faucet-smart',
+                        token: 'BNB',
                         explorer: 'https://testnet.bscscan.com'
                     },
                     1287: {
                         contract: '0xA73EfffAeB7DAE47ff894401c3398BD13cD2915B',
                         name: 'MoonBeam Testnet',
                         rpc: 'https://rpc.testnet.moonbeam.network',
+                        faucet: '',
+                        token: 'DEV',
                         explorer: 'https://moonbeam-explorer.netlify.app'
                     },
                     4002: {
                         contract: '0x936128d61b1Dd39DAD09dd2A2cBD7Dc09Be2F14B',
                         name: 'Fantom Testnet',
                         rpc: 'https://rpc.testnet.fantom.network',
+                        faucet: 'https://faucet.fantom.network/',
+                        token: 'FTM',
                         explorer: 'https://testnet.ftmscan.com'
                     },
                     43113: {
                         contract: '0xa6f8eB1f92e6e20b6F634dD2d1CB125aCBf85155',
                         name: 'Avalanche Testnet',
                         rpc: 'https://api.avax-test.network/ext/bc/C/rpc',
+                        faucet: 'https://faucet.avax-test.network/',
+                        token: 'AVAX',
                         explorer: 'https://cchain.explorer.avax-test.network'
                     },
                     80001: {
                         contract: '0x52810aC61d1fd106AeFc8a6d7F1898ffCb86f5F5',
                         name: 'Mumbai Matic',
                         rpc: 'https://rpc-mumbai.maticvigil.com',
+                        faucet: 'https://faucet.matic.network/',
+                        token: 'MATIC',
                         explorer: 'https://explorer-mumbai.maticvigil.com'
                     }
                 }
