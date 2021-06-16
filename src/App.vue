@@ -17,8 +17,8 @@
                 <div v-if="networks[networkId]">
                     <p>You are connected to {{networks[networkId].name}} network.</p>
                     <p v-if="txHash !== ''">
-                        1,000 tokens transfer to your address. <a :href="networks[networkId].explorer + '/tx/' + txHash"
-                                                                  target="_blank">Transaction detail</a>
+                        1,000 tokens transferred to your address. <a :href="networks[networkId].explorer + '/tx/' + txHash"
+                                                                  target="_blank">Transaction details</a>
                     </p>
                     <p>Token address: <a
                             :href="networks[networkId].explorer + '/address/' + networks[networkId].contract"
@@ -29,7 +29,7 @@
                             class="btn btn-lg btn-primary btn-block btn-request">Request faucet
                     </button>
                     <p v-if="networks[networkId].faucet !== ''" class="mt-4">
-                        Go to <a :href="networks[networkId].faucet" target="_blank">Faucet</a> to get {{networks[networkId].token}} testnet </p>
+                        Go to <a :href="networks[networkId].faucet" target="_blank">Faucet</a> to get testnet {{networks[networkId].token}}</p>
                 </div>
                 <div v-else>
                     This network is currently not supported
