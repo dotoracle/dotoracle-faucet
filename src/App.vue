@@ -139,6 +139,9 @@
                 })
             },
             async connect() {
+                if (!window.web3 && !window.ethereum) {
+                    alert('Wallet is not installed')
+                }
                 if (window.ethereum) {
                     await window.ethereum.enable()
                     if (window.ethereum) {
